@@ -2,7 +2,7 @@
     <div class="container-fluid main-box">
         <div class="row">
             <div class="col-sm-7 col-sm-offset-3 main-content">
-                <p>文章列表</p>
+                <p style="font-size: 2em;padding-top:2em;text-align: center;">文章列表</p>
                 <Articles :article-list="articleList"></Articles>
                 <Loadmore v-if="articleList.length > 0 && isMore" :options="options" :is-more="isMore" :is-fetching="isFetching"></Loadmore>
             </div>
