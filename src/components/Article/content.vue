@@ -10,3 +10,4 @@ export default {
     props:['articleDetail']
 }
 </script>
+

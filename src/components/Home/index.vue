@@ -11,36 +11,55 @@
 </template>
 
 <script>
-import Articles from './articles.vue'
-import Loadmore from './loadmore.vue'
-import { mapState, mapActions } from 'vuex'
-export default {
-    components: { Articles, Loadmore },
-    computed: {
-        ...mapState({
-            options: ({options}) => options.item,
-            articleList: ({articleList}) => articleList.items,
-            isMore: ({articleList}) => articleList.isMore,
-            isFetching: ({articleList}) => articleList.isFetching
-        })
-    },
-    created() {
-      console.log(this.articleList)
-      console.log(this.options)
-        if(this.articleList.length < 1) {
-            this.getArticleList({options: this.options})
-        }
-    },
-    methods: {
-        ...mapActions([
-            'changeOptions',
-            'getArticleList'
-        ]),
-        handleChange(options, isAdd=false) {
-            this.changeOptions(options)
-            this.getArticleList({options: this.options, isAdd:isAdd})
+    import Articles from './articles.vue'
+    import Loadmore from './loadmore.vue'
+    import {
+        mapState,
+        mapActions
+    } from 'vuex'
+    export default {
+        components: {
+            Articles,
+            Loadmore
+        },
+        computed: {
+            ...mapState({
+                options: ({
+                    options
+                }) => options.item,
+                articleList: ({
+                    articleList
+                }) => articleList.items,
+                isMore: ({
+                    articleList
+                }) => articleList.isMore,
+                isFetching: ({
+                    articleList
+                }) => articleList.isFetching
+            })
+        },
+        created() {
+            console.log(this.articleList)
+            console.log(this.options)
+            if (this.articleList.length < 1) {
+                this.getArticleList({
+                    options: this.options
+                })
+            }
+        },
+        methods: {
+            ...mapActions([
+                'changeOptions',
+                'getArticleList'
+            ]),
+            handleChange(options, isAdd = false) {
+                this.changeOptions(options)
+                this.getArticleList({
+                    options: this.options,
+                    isAdd: isAdd
+                })
+            }
         }
     }
-}
 </script>
 
