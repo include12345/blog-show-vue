@@ -1,4 +1,4 @@
-import {getFrontArticle} from '../../api'
+import {getOneArticle} from '../../api'
 
 const state = {
     item:{}
@@ -6,9 +6,9 @@ const state = {
 
 const actions = {
     getArticleDetail ({commit}, id) {
-        getFrontArticle(id).then(response => {
+        getOneArticle(id).then(response => {
             //if(response.ok) {
-                const article = response.data
+                const article = response
                 commit('ARTICLE_DETAIL', {
                     articleDetail: {...article}
                 })

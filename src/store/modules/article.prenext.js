@@ -6,10 +6,10 @@ const state = {
 }
 
 const actions = {
-    getPrenext({commit, rootState}, id) {
-        return getPrenext(id, rootState.options.item).then(response => {
+    getPrenext({commit}, id) {
+        return getPrenext(id).then(response => {
             //if(response.ok) {
-                commit('PRENEXT_ARTICLE', {prenextArticle: response.data})
+                commit('PRENEXT_ARTICLE', {prenextArticle: response})
             //}
         })
     }
@@ -17,8 +17,9 @@ const actions = {
 
 const mutations = {
     ['PRENEXT_ARTICLE'](state, action) {
-        state.prev = action.prenextArticle.prev || {}
-        state.next = action.prenextArticle.next || {}
+        state.prev = {id: action.prenextArticle.preId, title: action.prenextArticle.preTitle}|| {}
+        state.next = {id: action.prenextArticle.nextId, title: action.prenextArticle.nextTitle} || {}
+        console.log(state.prev)
     }
 }
 

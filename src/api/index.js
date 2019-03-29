@@ -8,6 +8,25 @@ export function getFrontArticleList(options) {
     })
 }
 
+export function getArticleList(form) {
+    return request({
+      url: '/blog/listBlog',
+      method: 'post',
+      data: {
+        "page":form.page,
+        "pageSize":form.limit
+      }
+    })
+  }
+
+  export function getOneArticle(id) {
+    return request({
+      url: '/blog/getBlog',
+      method: 'get',
+      params: {id}
+    })
+  }
+
 export function getFrontArticle(id) {
     return request({
         url: '/article/'+id+'/getFrontArticle',
@@ -16,11 +35,11 @@ export function getFrontArticle(id) {
 }
 
 
-export function getPrenext(id, params) {
+export function getPrenext(id) {
     return request({
-        url: '/article/'+id+'/getPrenext',
+        url: '/blog/getPreNextBlog',
         method:'get',
-        params: params,
+        params: {id},
     })
 }
 
