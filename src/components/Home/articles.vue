@@ -1,6 +1,6 @@
 <template>
     <ul class="article-list list-unstyled clearfix">
-        <li class="article-item" v-for="article in articleList" :key="article">
+        <li class="article-item" v-for="(article, index) in articleList" :key="index">
             <!--<router-link v-if="article.images.length > 0" :to="{ name: 'article', params: {aid: article._id}}" class="wrap-img">-->
                 <!--<img :src="article.images[0].url + '-100x100'"></img>-->
             <!--</router-link>-->

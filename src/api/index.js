@@ -9,12 +9,13 @@ export function getFrontArticleList(options) {
 }
 
 export function getArticleList(form) {
+    console.log(form)
     return request({
       url: '/blog/listBlog',
       method: 'post',
       data: {
-        "page":form.page,
-        "pageSize":form.limit
+        "page":form.currentPage,
+        "pageSize":form.itemsPrePage
       }
     })
   }

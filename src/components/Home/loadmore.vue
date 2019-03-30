@@ -15,6 +15,7 @@ export default {
     methods:{
         addData(){
             let currentPage = this.options.currentPage
+            console.log(currentPage)
             this.$parent.handleChange({currentPage:++currentPage}, true)
         }
     }

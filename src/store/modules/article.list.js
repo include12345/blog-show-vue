@@ -10,18 +10,18 @@ const actions = {
     getArticleList({commit}, {options, isAdd=false}) {
         commit('REQUEST_ARTICLE_LIST')
         getArticleList(options).then(response => {
-            console.log(response)
-            //if(!response.ok) {
-            //    return commit('GET_ARTICLE_LIST_FAILURE')
-            //}
             const json = response.articleList
-            const isMore = !(json.length < options.itemPerPage)
+            var isMore = false
+            if (response.articleCount > (options.itemsPrePage * options.currentPage)) {
+                 isMore = true
+            } 
             isAdd 
             ? commit('ADD_ARTICLE_LIST', {
                 articleList: json,
                 isMore: isMore
             })
             : commit('ARTICLE_LIST', {
+                
                 articleList: json,
                 isMore: isMore
             })

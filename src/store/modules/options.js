@@ -2,7 +2,7 @@
 const state = {
    item: {
      currentPage: 1,
-     itemsPrePage:10,
+     itemsPrePage: 2,
      sortName: 'publish_time',
      tagId: ''
    }
